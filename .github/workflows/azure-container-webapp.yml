@@ -1,9 +1,7 @@
-name: Build and Deploy Frontend to Azure Web App
+name: Deploy to Azure App Service
 
 on:
   push:
-    paths:
-      - 'frontend/**'
     branches:
       - main
 
@@ -13,35 +11,21 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v2
       with:
-        node-version: '20.x'
+        node-version: '14'
 
-    - name: Build frontend
-      run: |
-        cd frontend
-        npm install
-        npm run build
+    - name: Install dependencies
+      run: npm install
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: frontend-build
-        path: frontend/build
+    - name: Run build
+      run: npm run build
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy
-
-    steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: frontend-build
-        path: build
+    - name: Archive production artifacts
+      run: zip -r build.zip .
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -49,4 +33,4 @@ jobs:
         app-name: 'SoccerForChangeBackend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
-        package: ./frontend/build
+        package: build.zip
