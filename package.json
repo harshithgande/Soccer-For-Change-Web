@@ -1,8 +1,8 @@
 {
   "name": "soccer-for-change",
   "private": true,
+  "main": "server.js",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "vite",
@@ -15,7 +15,7 @@
     "@stripe/react-stripe-js": "^2.9.0",
     "@stripe/stripe-js": "^4.10.0",
     "axios": "^1.7.3",
-    "express": "^4.21.2",
+    "express": "^4.17.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.0"
