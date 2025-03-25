@@ -6,9 +6,9 @@ const express = require('express');
 const app = express();
 const PORT = 80;
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.send('Hello World!');
-});
+});*/
 
 // Serve static files from the 'dist' directory
 /*app.use(express.static(path.join(__dirname, 'dist')));
