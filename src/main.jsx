@@ -18,7 +18,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* ✅ Add the correct basename */}
-    <BrowserRouter basename="/SoccerForChange">
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<App />}>
           {/* Nested Routes */}
