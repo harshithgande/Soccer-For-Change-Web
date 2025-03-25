@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   // ✅ For GitHub Pages: use repo name in base
   // If deploying to a custom domain or root path, change this to "/"
-  base: "/SoccerForChange/",
+  base: "./",
 
   plugins: [react()],
 
