@@ -71,8 +71,8 @@ export default function Header() {
   }, []);
 
   // ✅ Dynamically determine logo paths (use absolute URLs or import for Vite if necessary)
-  const grayLogo = "/SoccerForChange/graysoccer4change.png";
-  const greenLogo = "/SoccerForChange/greensoccer4change.png";
+  const grayLogo = "/graysoccer4change.png";
+  const greenLogo = "/greensoccer4change.png";
 
   return (
     <div className="sticky top-0 h-24 transition-all duration-500 flex flex-col items-end z-50">
